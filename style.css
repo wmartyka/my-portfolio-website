@@ -1,30 +1,16 @@
 /* General Styles */
-:root {
-    --primary-color: #0078d4;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     background-color: #f4f4f9;
-}
-#contactForm textarea {
-    font-family: inherit !important;
-    font-size: inherit !important;
-    color: tomato !important;
-    background-color: inherit !important;
-    padding: inherit !important;
-    border: inherit !important;
-}
-#message {
-    margin-bottom: 20px;
+    color: #333;
 }
 
 /* Header Styles */
 header {
-    background: var(--primary-color);
+    background: #0078d4;
     color: #fff;
     padding: 20px 10px;
     text-align: center;
@@ -32,29 +18,25 @@ header {
 header h1 {
     margin: 0;
 }
-header nav {
-    margin-top: 10px;
-    display: block;
-}
 header nav ul {
-    display: flex;
-    justify-content: center;
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 header nav ul li {
     display: inline;
-    margin: 0 10px;
 }
 header nav ul li a {
     color: #fff;
     text-decoration: none;
-    margin: 20px auto;
+    font-size: 18px;
 }
 
 /* Section Styles */
 section {
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
     max-width: 800px;
     background: #fff;
@@ -63,37 +45,76 @@ section {
 }
 section h2 {
     border-bottom: 2px solid #0078d4;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 /* Form Styles */
-form {
+#contactForm {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
-form label {
-    margin: 10px 0 5px;
-}
-form input, form button {
-    padding: 10px 15px;
-    margin-top: 10px;
+
+/* Input and Textarea Styles */
+input, textarea {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
 }
-form button {
-    background: var(--primary-color);
-    color: #fff;
+
+/* Textarea Specific Styling */
+textarea {
+    resize: none; /* Prevent resizing */
+    height: 40px; /* Match input height */
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+/* Form Label Styling */
+form label {
+    font-weight: bold;
+}
+
+/* Button Styling */
+button {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 12px 20px;
     border: none;
-    cursor: pointer; 
+    border-radius: 5px;
+    background: #0078d4;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
-form button:hover {
+
+button:hover {
     background: #005a9e;
 }
 
 /* Footer Styles */
 footer {
     text-align: center;
-    padding: 10px 0;
-    background: var(--primary-color);
+    padding: 15px;
+    background: #0078d4;
     color: #fff;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        padding: 15px;
+    }
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
