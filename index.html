@@ -20,37 +20,38 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>This is a brief introduction about myself.</p>
+        <p>Hello! I'm a passionate web developer. Welcome to my portfolio website.</p>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
         <ul>
-            <li>Project 1</li>
-            <li>Project 2</li>
+            <li>Project 1: Web Application</li>
+            <li>Project 2: Data Visualization</li>
         </ul>
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <form action="submit" method="POST">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
 
             <button type="submit">Submit</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; <span id="year"></span> My Portfolio</p>
+        <p>&copy; 2024 My Portfolio</p>
     </footer>
 
+    <!-- Link to JavaScript file -->
     <script src="script.js" defer></script>
 </body>
 </html>
