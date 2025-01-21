@@ -55,5 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Error during form submission:", error);
             alert(error.message || 'Error submitting form. Please try again later.');
         }
+
+        // Ensure footer year updates dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+        const yearElement = document.getElementById('year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+    }
+});
+
     });
 });
