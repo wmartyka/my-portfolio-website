@@ -13,7 +13,7 @@ body {
 textarea {
     font-family: inherit;  /* Inherit from parent (usually body) */
     font-size: inherit;
-    color: inherit;
+    color: tomato;
     background-color: inherit;
     padding: inherit;
     margin: inherit;
