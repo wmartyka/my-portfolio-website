@@ -47,5 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     });
 
+    // Set the current year in the footer
+    document.querySelector('footer p').textContent = `© ${new Date().getFullYear()} My Portfolio`;
+
+
     
 });
