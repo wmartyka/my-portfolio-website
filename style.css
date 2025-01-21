@@ -43,7 +43,7 @@ header nav ul li a {
 
 /* Section Styles */
 section {
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
     max-width: 800px;
     background: #fff;
