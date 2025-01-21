@@ -17,10 +17,12 @@
             </ul>
         </nav>
     </header>
+
     <section id="about">
         <h2>About Me</h2>
         <p>This is a brief introduction about myself.</p>
     </section>
+
     <section id="projects">
         <h2>Projects</h2>
         <ul>
@@ -28,19 +30,24 @@
             <li>Project 2</li>
         </ul>
     </section>
+
     <section id="contact">
         <h2>Contact</h2>
-        <form action="/submit" method="POST">
         <form action="submit" method="POST">
+            <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+
             <button type="submit">Submit</button>
         </form>
     </section>
+
     <footer>
         <p>&copy; <span id="year"></span> My Portfolio</p>
     </footer>
+
     <script src="script.js" defer></script>
 </body>
 </html>
