@@ -18,6 +18,9 @@ body {
     padding: inherit !important;
     border: inherit !important;
 }
+#message {
+    margin-bottom: 20px;
+}
 
 /* Header Styles */
 header {
@@ -73,7 +76,6 @@ form label {
 }
 form input, form button {
     padding: 10px 15px;
-    margin-bottom: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
