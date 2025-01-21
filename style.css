@@ -10,13 +10,13 @@ body {
     line-height: 1.6;
     background-color: #f4f4f9;
 }
-textarea {
-    font-family: inherit;  /* Inherit from parent (usually body) */
-    font-size: inherit;
-    color: tomato;
-    background-color: inherit;
-    padding: inherit;
-    margin: inherit;
+#contactForm textarea {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    color: tomato !important;
+    background-color: inherit !important;
+    padding: inherit !important;
+    border: inherit !important;
 }
 
 /* Header Styles */
