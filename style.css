@@ -10,6 +10,14 @@ body {
     line-height: 1.6;
     background-color: #f4f4f9;
 }
+textarea {
+    font-family: inherit;  /* Inherit from parent (usually body) */
+    font-size: inherit;
+    color: inherit;
+    background-color: inherit;
+    padding: inherit;
+    margin: inherit;
+}
 
 /* Header Styles */
 header {
