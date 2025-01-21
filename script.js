@@ -50,6 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the current year in the footer
     document.querySelector('footer p').textContent = `© ${new Date().getFullYear()} My Portfolio`;
 
+    document.querySelector('form').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+    
+        const response = await fetch('https://my-portfolio-backend-kia5.onrender.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, email: email })
+        });
+    
+        const result = await response.json();
+        alert(result.message);
+    });
+    
+
 
     
 });
