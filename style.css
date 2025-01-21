@@ -1,4 +1,8 @@
 /* General Styles */
+:root {
+    --primary-color: #0078d4;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,7 +13,7 @@ body {
 
 /* Header Styles */
 header {
-    background: #0078d4;
+    background: var(--primary-color);
     color: #fff;
     padding: 20px 10px;
     text-align: center;
@@ -34,6 +38,7 @@ header nav ul li {
 header nav ul li a {
     color: #fff;
     text-decoration: none;
+    margin: 20px auto;
 }
 
 /* Section Styles */
@@ -59,13 +64,13 @@ form label {
     margin: 10px 0 5px;
 }
 form input, form button {
-    padding: 10px;
+    padding: 10px 15px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 form button {
-    background: #0078d4;
+    background: var(--primary-color);
     color: #fff;
     border: none;
     cursor: pointer; 
@@ -78,6 +83,6 @@ form button:hover {
 footer {
     text-align: center;
     padding: 10px 0;
-    background: #0078d4;
+    background: var(--primary-color);
     color: #fff;
 }
