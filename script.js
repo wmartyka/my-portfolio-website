@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Script loaded and DOM fully loaded");
+    console.log("DOM fully loaded and script running...");
 
+    // Update footer year dynamically
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+        console.log("Year updated successfully.");
+    } else {
+        console.error("Year element not found in the DOM.");
+    }
+
+    // Form submission handling
     const form = document.getElementById('contactForm');
 
     if (!form) {
@@ -9,38 +19,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     form.addEventListener('submit', async function(event) {
-        event.preventDefault();
+        event.preventDefault();  // Prevent page reload
+        console.log("Form submission event detected.");
 
         // Get input values
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
 
-        if (!nameInput || !emailInput || !messageInput) {
+        if (!name || !email || !message) {
             console.error("One or more form elements not found.");
             return;
         }
 
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
+        const formData = {
+            name: name.value.trim(),
+            email: email.value.trim(),
+            message: message.value.trim()
+        };
 
         // Basic form validation
-        if (!name || !email || !message) {
+        if (!formData.name || !formData.email || !formData.message) {
             alert('All fields are required.');
+            console.warn("Validation failed: Missing fields.");
             return;
         }
 
-        console.log("Submitting form with data:", { name, email, message });
+        console.log("Sending form data:", formData);
 
         try {
             const response = await fetch('https://my-portfolio-backend-kia5.onrender.com/submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, message })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
             });
+
+            console.log("Request sent, awaiting response...");
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -49,20 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
             alert(result.message);
-            form.reset();  // Clear form after successful submission
+            console.log("Form submitted successfully:", result);
+            form.reset();  // Clear form fields after successful submission
 
         } catch (error) {
             console.error("Error during form submission:", error);
             alert(error.message || 'Error submitting form. Please try again later.');
         }
-
-        // Ensure footer year updates dynamically
-        document.addEventListener('DOMContentLoaded', () => {
-        const yearElement = document.getElementById('year');
-        if (yearElement) {
-            yearElement.textContent = new Date().getFullYear();
-    }
-});
-
     });
+
+    console.log("Form event listener attached successfully.");
 });
