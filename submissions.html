@@ -4,23 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Submissions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0078d4;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .loading {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <h1>Form Submissions</h1>
-    <ul id="submissionList"></ul>
+    <div id="loading" class="loading">Loading submissions...</div>
+    <table id="submissionsTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody id="submissionList">
+        </tbody>
+    </table>
 
     <script>
         fetch('https://my-portfolio-backend-kia5.onrender.com/submissions')
             .then(response => response.json())
             .then(data => {
                 const submissionList = document.getElementById('submissionList');
-                data.forEach(submission => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = `Name: ${submission.name}, Email: ${submission.email}`;
-                    submissionList.appendChild(listItem);
-                });
+                const loadingDiv = document.getElementById('loading');
+                const table = document.getElementById('submissionsTable');
+
+                if (data.length === 0) {
+                    loadingDiv.textContent = "No submissions found.";
+                } else {
+                    loadingDiv.style.display = 'none';
+                    table.style.display = 'table';
+
+                    data.forEach(submission => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${submission.name}</td>
+                            <td>${submission.email}</td>
+                            <td>${submission.submitted_at}</td>
+                        `;
+                        submissionList.appendChild(row);
+                    });
+                }
             })
-            .catch(error => console.error('Error fetching submissions:', error));
+            .catch(error => {
+                document.getElementById('loading').textContent = 'Error loading submissions.';
+                console.error('Error fetching submissions:', error);
+            });
     </script>
 </body>
 </html>
