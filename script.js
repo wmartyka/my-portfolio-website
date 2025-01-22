@@ -18,13 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    console.log("Form found, adding event listener...");
+
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
         console.log("Form submission event detected.");
 
-        // Get input values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+
+        if (!nameInput || !emailInput) {
+            console.error("One or more form elements not found.");
+            return;
+        }
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
 
         if (!name || !email) {
             alert('All fields are required.');
@@ -49,7 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
             alert(result.message);
             console.log("Form submitted successfully:", result);
+
+            // Clear input fields after successful submission
             form.reset();
+            console.log("Form reset after submission.");
 
         } catch (error) {
             console.error("Error during form submission:", error);
