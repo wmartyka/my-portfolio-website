@@ -1,5 +1,5 @@
 html {
-    scroll-padding-top: 60px; /* Adjust to match your header height */
+    scroll-padding-top: 100px; /* Adjust to match your header height */
     scroll-behavior: smooth; /* Adds smooth scrolling effect */
 }
 
