@@ -14,7 +14,7 @@ header {
     position: fixed;
     background: #0078d4;
     color: #fff;
-    padding: 20px 10px;
+    padding: 10px 0;
     text-align: center;
     top: 0;
 }
@@ -64,7 +64,7 @@ header nav ul li a {
 }
 
 main {
-    padding-top: 120px; /* Adds space to avoid overlap */
+    padding-top: 140px; /* Adds space to avoid overlap */
 }
 
 /* Section Styles */
