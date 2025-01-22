@@ -19,42 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     form.addEventListener('submit', async function(event) {
-        event.preventDefault();  // Prevent page reload
+        event.preventDefault();
         console.log("Form submission event detected.");
 
         // Get input values
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const message = document.getElementById('message');
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
 
-        if (!name || !email || !message) {
-            console.error("One or more form elements not found.");
-            return;
-        }
-
-        const formData = {
-            name: name.value.trim(),
-            email: email.value.trim(),
-            message: message.value.trim()
-        };
-
-        // Basic form validation
-        if (!formData.name || !formData.email || !formData.message) {
+        if (!name || !email) {
             alert('All fields are required.');
             console.warn("Validation failed: Missing fields.");
             return;
         }
 
-        console.log("Sending form data:", formData);
+        console.log("Submitting form data:", { name, email });
 
         try {
             const response = await fetch('https://my-portfolio-backend-kia5.onrender.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ name, email })
             });
-
-            console.log("Request sent, awaiting response...");
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -64,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
             alert(result.message);
             console.log("Form submitted successfully:", result);
-            form.reset();  // Clear form fields after successful submission
+            form.reset();
 
         } catch (error) {
             console.error("Error during form submission:", error);
@@ -72,5 +57,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    console.log("Form event listener attached successfully.");
+    console.log("Form event listener attached.");
 });
