@@ -10,6 +10,7 @@ body {
 
 /* Header Styles */
 header {
+    width: 100%;
     position: fixed;
     background: #0078d4;
     color: #fff;
