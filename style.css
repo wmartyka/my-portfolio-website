@@ -1,6 +1,5 @@
 /* General Styles */
 body {
-    padding-top: 80px;
     font-family: Arial, sans-serif;
     margin: 0;
     /* padding: 0; */
@@ -64,6 +63,9 @@ header nav ul li a {
     width: 100%;  /* Expand underline fully on hover */
 }
 
+main {
+    padding-top: 80px; /* Adds space to avoid overlap */
+}
 
 /* Section Styles */
 section {
