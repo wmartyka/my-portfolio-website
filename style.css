@@ -1,3 +1,8 @@
+html {
+    scroll-padding-top: 60px; /* Adjust to match your header height */
+    scroll-behavior: smooth; /* Adds smooth scrolling effect */
+}
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
