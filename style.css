@@ -17,6 +17,7 @@ header {
 }
 header h1 {
     margin: 0;
+    position: fixed;
 }
 header nav ul {
     list-style: none;
