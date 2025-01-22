@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submissions</title>
+</head>
+<body>
+    <h1>Form Submissions</h1>
+    <ul id="submissionList"></ul>
+
+    <script>
+        fetch('https://my-portfolio-backend-kia5.onrender.com/submissions')
+            .then(response => response.json())
+            .then(data => {
+                const submissionList = document.getElementById('submissionList');
+                data.forEach(submission => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `Name: ${submission.name}, Email: ${submission.email}`;
+                    submissionList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching submissions:', error));
+    </script>
+</body>
+</html>
